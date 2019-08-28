@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML and CSS
+   Tutorial 6
+   Case Problem 1
+
+   Tables Style Sheet
+   Author: Jeff Flanegan
+   Date:   2019-6-28
+
+   Filename:         mi_tables.css
+
+*/
+
+/* Table Styles */
+/*Sets the whole table background with a vertical linear gradient from blue to black
+and creates a stylized border around the table 5 pixels thick, unbroken and gray. JF*/
+table{
+    background: linear-gradient(rgb(190,215,255), black);
+    border: 5px solid gray;
+}
+th, td{
+    border: 3px solid gray;
+    line-height: 1.4em;/*Gives the text 140% vertical spacing. JF*/
+    /*8 pixel padding space given to the elements increasing the distance between 
+    the text and cell wall. JF*/
+    padding: 8px;
+}
+th{
+    background: black;
+    color: rgb(130,210,255);/*Sets text color. JF*/
+    font-weight: normal;/*Sets text thickness. JF*/
+}
+td{
+    color: white;
+    font-size: 0.9em;
+    vertical-align: top;/*Determines the position of the text within the element vertically. JF*/
+}
+
+
+/* Column Styles */
+/*Sets the width of the column by a percentage of its containing element. JF*/
+#firstCol{
+    width: 24%;
+}
+.dataCols{
+    width: 19%;
+}
+
+
+/* Table Header Styles */
+/*Sets the height of the header rows to 60 pixels. JF*/
+thead tr{
+    height: 60px;
+}
+/*Sets the text of the first table header of the first row to 2x the size of normal.
+first-of-type is a pseudo class that selects only the first of the preceeding type. JF*/
+thead tr:first-of-type th:first-of-type{
+    font-size: 2em;
+}
+thead tr:first-of-type th:not(:first-of-type){
+    background:rgba(0,0,0,0);/*Makes the background of this element transparent. JF*/
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+

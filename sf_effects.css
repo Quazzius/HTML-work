@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Case Problem 2
+   
+   Save your Fork Graphic Design Styles
+   Author: Jeff Flanegan
+   Date: 2019-6-16
+
+   Filename: sf_effects.css
+
+*/
+
+/* Body Header Styles */
+body{
+    /*These make the shadows to the left and right of the page body 
+    making it seem like it's lifting away from the background.
+    This example makes a shadow 10 pixels from the edge of the article horizontally,
+    0 pixels vertically with a 50 pixel blur. Positive values move right and down
+    where negative values move left and up. JF*/
+    box-shadow: rgb(51,51,51) 10px 0px 50px,
+                rgb(51,51,51) -10px 0px 50px;
+}
+
+
+/* Navigation Tabs List Styles */
+body > header nav.tabs{
+    /*This imports a background image of delicious looking treats to the navigation header.
+    It is centered vertically and horizontally, covers the whole area and does not tile repeat. JF*/
+    background: url(sf_back1.png) center center / cover no-repeat;
+}
+body > header nav.tabs li{
+    /*Transform has a variety of options. Perspective creates a vanishing point 50 pixels from
+    the object and rotate(x, y, or z) rotates the object along the defined axis 
+    by the defined degree of rotation. JF*/
+    transform: perspective(50px) rotatex(20deg);
+    
+}
+/*When overing over a link, this will change the background color of the link. JF*/
+body > header nav.tabs li a:hover{
+    background-color: rgb(231,231,231);
+}
+/* Left Section Styles */
+section#left nav.vertical{
+    /*The left side vertical navigation elements are given a thin solid border
+    and the edges are rounded with the edge of a circle with a radius of 25 pixels. JF*/
+    border: 1px solid rgb(20,167,170);
+    border-radius: 25px;
+}
+section#left nav.vertical h1{
+    /*This only rounds the top corneres of the navigation header. JF*/
+    border-radius: 25px 25px 0px 0px;
+}
+
+
+/* Center Article Styles */
+section#center article{
+    /*Applies a radial gradient starting from the middle of the element as white
+    and radiating outward, stopping 30% of the way through the gradient. JF*/
+    background: radial-gradient(white 30%, rgb(151,151,151));
+    
+    border: 1px solid rgb(151,151,151);
+    border-radius: 50px;
+    box-shadow: rgb(51,51,51) 10px 10px 20px;
+}
+
+
+
+/* Blockquote Styles */
+blockquote{
+    background: url(sf_speech.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /*The filter drop-shadow creates an un-boxed shadow surrounding the
+    non-uniformly shaped image with the same parameters of a box-shadow. JF*/
+    filter: drop-shadow(5px 5px 10px rgb(51, 51, 51));
+
+}
+/*Reviewer images. JF*/
+cite img{
+    border-radius: 50px;
+}
+

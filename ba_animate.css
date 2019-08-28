@@ -1,0 +1,83 @@
+/*
+   New Perspectives on HTML and CSS, 7th Edition
+   Tutorial 8
+   Case Problem 2
+
+   Big Apple Physics Animation Styles
+   Author: Jeff Flanegan
+   Date:   2019-7-13
+
+   Filename: ba_animate.css
+
+*/
+
+
+/* Transition Styles */
+/*This brings in an image of an ellipse image with a double yellow border
+and is defaulted at not showing over the nav link. It has a pre-set text color (reddish)
+that it will transition into from the default color (yellowish) in 0.8 seconds when hovered over 
+and opens the image to 100% size in 0.3 seconds at the same instant. JF*/
+nav a{
+    background: url(ba_target.png) center center / 0% 0% no-repeat;
+    color: rgb(253,240,133);
+    transition: background 0.3s, color 0.8s;
+}
+nav a:hover{
+    background-size: 100% 100%;
+    color: rgb(244,130,130);
+}
+
+
+/* Animation Styles */
+/*The keyframes mark instances at percantages of transition time between 0%
+and 100% transformation. Here the starting positions(0px), drop shadows behind the ball,
+and text color are set at 0% transition. At 49% the x axis scale increases by 1.
+At 50% the ball positions are at the center where they meet, the shadows are directly
+behind the balls and the x-axis shrinks giving the illusion they squish together. After
+this the transition mirrors in reverse for the red ball at 51% and finally at 100% effectively resetting
+the red ball to the start and showing the collision momentum change of the blue ball to the right. JF*/
+@keyframes moveRed{
+    0% {left: 0px; filter: drop-shadow(-40px 20px 25px); color rgb(51,51,51);}
+    49% {transform: scalex(1);}
+    50% {left: 380px; filter: drop-shadow(0px 0px 0px); color rgb(51,51,51); transform: scalex(0.4);}
+    51% {transform: scalex(1.0);}
+    100% {left: 0px; filter: drop-shadow(-40px 20px 25px); color rgb(51,51,51);}
+}
+@keyframes moveBlue{
+    0% {right: 0px; filter: drop-shadow(40px 20px 25px); color rgb(51,51,51);}
+    49% {transform: scalex(1);}
+    50% {right: 380px; filter: drop-shadow(0px 0px 0px); color rgb(51,51,51); transform: scalex(0.4);}
+    51% {transform: scalex(1.0);}
+    100% {right: -700px; filter: drop-shadow(120px 20px 25px); color rgb(51,51,51);}
+}
+/*Show text and hide text use the same percentage intervals as above; though
+these control the opacity at the intervals and are compliments of each other
+with 0 being transparent. JF*/
+@keyframes showText{
+   0%{opacity 0.0;}
+   49%{opacity: 0.0;}
+   51%{opacity: 1.0;}
+   100%{opacity: 1.0;}
+}
+@keyframes hideText{
+   0%{opacity: 1.0;}
+   49%{opacity: 1.0;}
+   51%{opacity: 0.0;}
+   100%{opacity: 0.0;}
+}
+/*These initiate the animations. redBall and blueBall use moveRed and moveBlue
+for their animation parameters and will happen over the course of 5 seconds, moving in
+linear form toward each other and will happen infinitely. The same is said of redSpeed1
+and blueSpeed1 using hideText and showText. JF*/
+#redBall{
+    animation: moveRed 5s linear infinite;
+}
+#blueBall{
+    animation: moveBlue 5s linear infinite;
+}
+#redSpeed1, #blueSpeed1{
+    animation: hideText 5s linear infinite;
+}
+#redSpeed2, #blueSpeed2{
+    animation: showText 5s linear infinite;
+}
